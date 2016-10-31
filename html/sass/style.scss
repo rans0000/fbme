@@ -1,0 +1,50 @@
+@import "variables.scss";
+
+html{
+    font-size: $font_size_base;vertical-align: baseline;font-weight: normal;
+}
+body{
+    background: #f5f5f5;font-weight: normal;font-size: $font-size-normal;line-height: $font-line-height;font-family: $font-primary;
+}
+%clearfix{
+    &:after{
+        content: '.';clear: both;height: 0;visibility: hidden;display: block;
+    }
+}
+
+/*======================================================*/
+/*componenets*/
+.table-primary{
+    background: #fff;
+}
+
+/*======================================================*/
+/*header*/
+.wrapper-header{
+    @extend %clearfix;
+    clear: both;height: ($font-line-height * 2.5);
+}
+.logo{
+    float: left;font-weight: bold;margin: 0;
+}
+.header-tools{
+    float: right;
+
+    li{
+        display: inline-block;vertical-align: middle;list-style-type: none;margin-left: 1rem;
+    }
+}
+/*======================================================*/
+/*content*/
+.wrapper-main{
+    @extend %clearfix;
+    clear: both;min-height: 20rem;min-height: calc(100vh - (8.1rem))
+}
+/*======================================================*/
+/*footer*/
+.wrapper-footer{
+    height: ($font-line-height * 2);text-align: center;
+    p{
+        margin: 0;line-height: ($font-line-height * 2);
+    }
+}

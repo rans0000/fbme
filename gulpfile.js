@@ -5,15 +5,15 @@ var sourcemaps = require('gulp-sourcemaps');
 var scssConfig = {outputStyle: 'compressed'};
 
 gulp.task('sass', function () {
-    return gulp.src('dev/sass/**/style.scss')
+    return gulp.src('html/sass/**/style.scss')
         .pipe(sourcemaps.init())
         .pipe(sass(scssConfig).on('error', sass.logError))
         .pipe(sourcemaps.write('/'))
-        .pipe(gulp.dest('dev/css'));
+        .pipe(gulp.dest('html/css'));
 });
 
 
 gulp.task('watch', function () {
     //gulp.watch('images/sprites/**/*.png', ['sprite']);
-    gulp.watch('dev/sass/**/*.scss', ['sass']);
+    gulp.watch('html/sass/**/*.scss', ['sass']);
 });
