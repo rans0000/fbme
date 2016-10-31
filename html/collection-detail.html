@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>FBME</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/libs/bootstrap.min.css">
+        <link rel="stylesheet" href="css/libs/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <div class="wrapper-all">
+            <header class="wrapper-header">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-4">
+                            <h1 class="logo"><a href="#">FBME Bank</a></h1>
+                        </div>
+                        <div class="col-xs-12 col-sm-8">
+                            <ul class="header-tools">
+                                <li>
+                                    <button class="btn btn-default btn-xs">
+                                        <span class="glyphicon glyphicon-home"></span>
+                                        <span class="sr-only">Home</span>
+                                    </button>
+                                </li>
+                                <li>
+                                    <div class="btn-group" uib-dropdown>
+                                        <button id="split-button" type="button" class="btn btn-default btn-xs">Richard@finndocs.com</button>
+                                        <button type="button" class="btn btn-default btn-xs" uib-dropdown-toggle>
+                                            <span class="caret"></span>
+                                            <span class="sr-only">Split button!</span>
+                                        </button>
+                                        <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="split-button">
+                                            <li role="menuitem"><a href="#">Profile</a></li>
+                                            <li role="menuitem"><a href="#">Logout</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <main class="wrapper-main">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <header class="main-toolbar">
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-6">
+                                        <ol class="breadcrumb">
+                                            <li><a href="#">Home</a></li>
+                                            <li><a href="#">Collaboration</a></li>
+                                            <li class="active">Bank Employee Salary Auditing</li>
+                                        </ol>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6 text-right">
+                                        <button type="button" class="btn btn-success">Create Folder</button>
+                                        <button type="button" class="btn btn-success">Upload File</button>
+                                        <form class="form-inline search-primary" role="form">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control text-right" id="exampleInputEmail2" placeholder="Doc Search..." title="Doc Search">
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </header>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <ul class="menu-tree">
+                                <li><a href="#"><span class="glyphicon glyphicon-folder-close"></span> Folder</a>
+                                    <ul class="menu-tree">
+                                        <li><a href="#"><span class="glyphicon glyphicon-folder-close"></span> Folder</a></li>
+                                        <li><a href="#"><span class="glyphicon glyphicon-folder-close"></span> Folder</a></li>
+                                        <li><a href="#"><span class="glyphicon glyphicon-folder-close"></span> Folder</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#"><span class="glyphicon glyphicon-folder-close"></span> Folder</a></li>
+                                <li><a href="#"><span class="glyphicon glyphicon-folder-close"></span> Folder</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-xs-9">
+                            <table class="table table-hover table-primary">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Folder Name</th>
+                                        <th>Created Date</th>
+                                        <th>Last modified On</th>
+                                        <th>Size</th>
+                                        <th class="text-right">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><input type="checkbox"></td>
+                                        <td><a href="#"><span class="glyphicon glyphicon-folder-close"></span> Folder</a></td>
+                                        <td>02/15/2010</td>
+                                        <td>05/15/2010</td>
+                                        <td>15KB</td>
+                                        <td class="text-right">
+                                            <button class="btn btn-default btn-xs">
+                                                <span class="glyphicon glyphicon-star-empty"></span>
+                                                <span class="sr-only">Favourited</span>
+                                            </button>
+                                            <button class="btn btn-danger btn-xs">
+                                                <span class="glyphicon glyphicon-share"></span>
+                                                <span class="sr-only">Share</span>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <table class="table table-hover table-primary">
+                                <caption>File Properties of Doc1.3</caption>
+                                <tbody>
+                                    <tr>
+                                        <th>Version</th>
+                                        <td>2</td>
+                                    </tr>
+                                    <tr>
+                                        <th></th>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <th></th>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <th></th>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <footer class="wrapper-footer">
+                <p>CopyRights &copy; 2016. finnDocs.com</p>
+            </footer>
+        </div>
+    </body>
+</html>
