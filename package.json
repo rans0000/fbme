@@ -1,0 +1,16 @@
+{
+  "name": "localize-test",
+  "version": "0.1.0",
+  "description": "testing localization features with KendoUI and SASS.",
+  "main": "build/index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "rans0000@gmail.com",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.3.2",
+    "gulp-sourcemaps": "^2.2.0"
+  }
+}
