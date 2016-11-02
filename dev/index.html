@@ -3,11 +3,50 @@
     <head>
         <meta charset="UTF-8">
         <title>FBME</title>
+        <link rel="stylesheet" href="css/libs/bootstrap.min.css">
         <link rel="stylesheet" href="css/libs/bootstrap-theme.min.css">
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
-        <p ng-controller="CoreController as core">Testing localization {{core.value}}</p>
+        <!--<p ng-controller="CoreController as core">Testing localization {{core.value}}</p>-->
+        <div class="wrapper-all">
+            <header class="wrapper-header">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-4">
+                            <h1 class="logo"><a href="#">FBME Bank</a></h1>
+                        </div>
+                        <div class="col-xs-12 col-sm-8">
+                            <ul class="header-tools">
+                                <li>
+                                    <button class="btn btn-default btn-xs">
+                                        <span class="glyphicon glyphicon-home"></span>
+                                        <span class="sr-only">Home</span>
+                                    </button>
+                                </li>
+                                <li>
+                                    <div class="btn-group" uib-dropdown>
+                                        <button id="split-button" type="button" class="btn btn-default btn-xs">Richard@finndocs.com</button>
+                                        <button type="button" class="btn btn-default btn-xs" uib-dropdown-toggle>
+                                            <span class="caret"></span>
+                                            <span class="sr-only">Split button!</span>
+                                        </button>
+                                        <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="split-button">
+                                            <li role="menuitem"><a href="#">Profile</a></li>
+                                            <li role="menuitem"><a href="#">Logout</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <main class="wrapper-main" ui-view></main>
+            <footer class="wrapper-footer">
+                <p>CopyRights &copy; 2016. finnDocs.com</p>
+            </footer>
+        </div>
         <script src="js/libs/jquery.min.js"></script>
         <script src="js/libs/angular.min.js"></script>
         <script src="js/libs/angular-ui-router.min.js"></script>
@@ -15,5 +54,8 @@
         <script src="js/libs/ui-bootstrap.min.js"></script>
         <!--angular script-->
         <script src="js/app.core.js"></script>
+        <script src="js/modules/collaboration/collaborationModule.js"></script>
+        <script src="js/modules/collaboration/collaborationService.js"></script>
+        <script src="js/modules/collaboration/collaborationListController.js"></script>
     </body>
 </html>

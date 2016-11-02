@@ -1,3 +1,75 @@
+@import "variables.scss";
+
+html{
+    font-size: $font_size_base;vertical-align: baseline;font-weight: normal;
+}
 body{
-    background: yellow;
+    background: $bg-color;font-weight: normal;font-size: $font-size-normal;line-height: $line-height;font-family: $font-primary;
+}
+%clearfix{
+    &:after{
+        content: '.';clear: both;height: 0;visibility: hidden;display: block;
+    }
+}
+
+/*======================================================*/
+/*componenets*/
+.table-primary{
+    background: #fff;
+}
+
+.breadcrumb{
+    margin-bottom: ($line-height / 3);background-color: transparent;
+}
+
+/*======================================================*/
+/*header*/
+.wrapper-header{
+    @extend %clearfix;
+    clear: both;background-color: $primary-color;
+    > .container{
+        padding-top: ($line-height / 3);
+    }
+}
+.logo{
+    float: left;font-weight: bold;margin: 0;font-size: $font-size-big;line-height: ($line-height * 1.5);
+    a{
+        color: #fff;text-decoration: none;
+    }
+}
+.header-tools{
+    float: right;
+    li{
+        display: inline-block;vertical-align: middle;list-style-type: none;margin-left: 1rem;
+    }
+}
+.main-toolbar{
+    padding-top: ($line-height / 3);margin-bottom: ($line-height / 3);
+    .search-primary{
+        display: inline-block;
+    }
+}
+/*======================================================*/
+/*content*/
+.wrapper-main{
+    @extend %clearfix;
+    clear: both;/*min-height: 20rem;min-height: calc(100vh - (8.9rem));*/
+}
+
+.popup-wrapper{
+    position: fixed;width: 100%;height: 100%;overflow: hidden;top: 0;left: 0;z-index: 100;
+}
+.popup-overlay{
+    position: fixed;width: 100%;height: 100%;background: #000;background: rgba(0, 0, 0, .8);
+}
+.popup-panel{
+    width: 100%;max-width: 400px;z-index: 101;position: relative;margin: 30px auto 0;
+}
+/*======================================================*/
+/*footer*/
+.wrapper-footer{
+    height: ($line-height * 2);text-align: center;
+    p{
+        margin: 0;line-height: ($line-height * 2);
+    }
 }

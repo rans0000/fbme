@@ -1,0 +1,141 @@
+<div>
+    <div class="container">
+        <header class="main-toolbar">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6">
+                    <ol class="breadcrumb">
+                        <li><a href="#">Home</a></li>
+                        <li class="active">Collaboration</li>
+                    </ol>
+                </div>
+                <div class="col-xs-12 col-sm-6 text-right">
+                    <button type="button" class="btn btn-success">Create Collaboration</button>
+                    <form class="form-inline search-primary" role="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control text-right" id="exampleInputEmail2" placeholder="Collaboration Search..." title="Collaboration Search" ng-model="CollaborationListVM.filterText">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </header>
+        <table class="table table-hover table-primary">
+            <thead>
+                <tr>
+                    <th>Collaboration Name</th>
+                    <th>Title Holder</th>
+                    <th>Start Date</th>
+                    <th>Expiry Date</th>
+                    <th>Status</th>
+                    <th class="text-right">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in CollaborationListVM.collaborationList | filter: CollaborationListVM.filterText track by item.id">
+                    <td><a href="#">{{item.name}}</a></td>
+                    <td>{{item.titleHolder}}</td>
+                    <td>{{item.startDate | date: 'MM/dd/yyyy'}}</td>
+                    <td>{{item.expiryDate | date: 'MM/dd/yyyy'}}</td>
+                    <td>{{item.status}}</td>
+                    <td class="text-right">
+                        <button class="btn btn-default btn-xs">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                            <span class="sr-only">Edit</span>
+                        </button>
+                        <button class="btn btn-danger btn-xs" ng-click="CollaborationListVM.deleteCollaborationItem(item)">
+                            <span class="glyphicon glyphicon-trash"></span>
+                            <span class="sr-only">Delete</span>
+                        </button>
+                    </td>
+                </tr>
+                <!--<tr>
+                    <td><a href="#">Bank Employee Salary Auditing</a></td>
+                    <td>Richard Own</td>
+                    <td>02/15/2010</td>
+                    <td>05/15/2010</td>
+                    <td>Active</td>
+                    <td class="text-right">
+                        <button class="btn btn-default btn-xs">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                            <span class="sr-only">Edit</span>
+                        </button>
+                        <button class="btn btn-danger btn-xs">
+                            <span class="glyphicon glyphicon-trash"></span>
+                            <span class="sr-only">Delete</span>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td><a href="#">Bank Employee Salary Auditing</a></td>
+                    <td>Richard Own</td>
+                    <td>02/15/2010</td>
+                    <td>05/15/2010</td>
+                    <td>Active</td>
+                    <td class="text-right">
+                        <button class="btn btn-default btn-xs">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                            <span class="sr-only">Edit</span>
+                        </button>
+                        <button class="btn btn-danger btn-xs">
+                            <span class="glyphicon glyphicon-trash"></span>
+                            <span class="sr-only">Delete</span>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td><a href="#">Bank Employee Salary Auditing</a></td>
+                    <td>Richard Own</td>
+                    <td>02/15/2010</td>
+                    <td>05/15/2010</td>
+                    <td>Active</td>
+                    <td class="text-right">
+                        <button class="btn btn-default btn-xs">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                            <span class="sr-only">Edit</span>
+                        </button>
+                        <button class="btn btn-danger btn-xs">
+                            <span class="glyphicon glyphicon-trash"></span>
+                            <span class="sr-only">Delete</span>
+                        </button>
+                    </td>
+                </tr>-->
+            </tbody>
+        </table>
+    </div>
+    <section class="popup-wrapper" ng-show="CollaborationListVM.isModelOpen">
+        <div class="popup-overlay"></div>
+        <div class="panel panel-default popup-panel">
+            <header class="panel-heading clearfix">
+                <h1 class="panel-title pull-left">Create new Collaboration</h1>
+                <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </header>
+            <div class="panel-body">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-4 control-label">Name</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="inputEmail3" placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-4 control-label">Description</label>
+                        <div class="col-sm-8">
+                            <textarea class="form-control" rows="3"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-4 control-label">Title Holder</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="inputEmail4" placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-4 col-sm-8">
+                            <button type="submit" class="btn btn-primary">Save</button>
+                            <button type="button" class="btn btn-default">Cancel</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</div>

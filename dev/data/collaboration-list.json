@@ -1,0 +1,36 @@
+{
+    "collaborationList": [
+        {
+            "id": 1,
+            "name": "Bank Employee Salary Auditing",
+            "titleHolder": "Richard Owen",
+            "startDate": "2016-02-03T00:00:00Z",
+            "expiryDate": "2016-02-08T00:00:00Z",
+            "status": "Active"
+        },
+        {
+            "id": 2,
+            "name": "Bank Rent Auditing",
+            "titleHolder": "Charis Daniel",
+            "startDate": "2016-02-05T00:00:00Z",
+            "expiryDate": "2016-02-08T00:00:00Z",
+            "status": "Inactive"
+        },
+        {
+            "id": 3,
+            "name": "2014-2015 Customer Feedback",
+            "titleHolder": "Alex Kim",
+            "startDate": "2016-04-01T00:00:00Z",
+            "expiryDate": "2016-08-08T00:00:00Z",
+            "status": "Active"
+        },
+        {
+            "id": 4,
+            "name": "2014-2015 EPF Auditing",
+            "titleHolder": "Richard Owen",
+            "startDate": "2016-02-03T00:00:00Z",
+            "expiryDate": "2016-02-08T00:00:00Z",
+            "status": "Active"
+        }
+    ]
+}
