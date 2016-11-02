@@ -13,7 +13,23 @@
         vm.isModelOpen = false;
         vm.collaborationList = [];
         vm.filterText = '';
+        vm.newCollaboration = null;
+        vm.startDateOpen= false;
+        vm.expiryDateOpen= false;
+        vm.format= 'dd-MMMM-yyyy';
+        vm.dateOptions = {
+            //dateDisabled: disabled,
+            formatYear: 'yy',
+            maxDate: new Date(2020, 5, 22),
+            minDate: new Date(),
+            startingDay: 1
+        };
+
         vm.deleteCollaborationItem = deleteCollaborationItem;
+        vm.activateCollaborationDialog = activateCollaborationDialog;
+        vm.createCollaborationItem = createCollaborationItem;
+        vm.open1 = open1;
+        vm.open2 = open2;
 
         init();
 
@@ -34,11 +50,37 @@
             var errMessage = 'Error: ' + error.status + ' ' + error.statusText;
             alert(errMessage);
         }
-        
+
         function deleteCollaborationItem (item) {
             var index = vm.collaborationList.indexOf(item);
             vm.collaborationList.splice(index, 1);
         }
+
+        function activateCollaborationDialog (state) {
+            vm.isModelOpen = state;
+            vm.newCollaboration = state? collaborationService.getNewCollaborationObject() : null;
+        }
+
+        function createCollaborationItem (item) {
+            if(collaborationService.validatingCollaborationItem(item)){
+                //code to call service to add new object in DB here...
+                vm.collaborationList.push(item);
+                vm.isModelOpen = false;
+            }
+            else{
+                alert('Invalid fields');
+            }
+        }
+
+        
+
+        function open1 () {
+            vm.startDateOpen = true;
+        }
+        function open2 () {
+            vm.expiryDateOpen = true;
+        }
+
     }
 
 })();
