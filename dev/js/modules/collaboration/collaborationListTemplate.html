@@ -31,7 +31,7 @@
             </thead>
             <tbody>
                 <tr ng-repeat="item in CollaborationListVM.collaborationList | filter: CollaborationListVM.filterText track by item.id">
-                    <td><a href="#">{{item.name}}</a></td>
+                    <td><a ui-sref="collaborationDetails({collaborationId:1})">{{item.name}}</a></td>
                     <td>{{item.titleHolder}}</td>
                     <td>{{item.startDate | date: 'MM/dd/yyyy'}}</td>
                     <td>{{item.expiryDate | date: 'MM/dd/yyyy'}}</td>

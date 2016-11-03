@@ -62,7 +62,7 @@
         }
 
         function createCollaborationItem (item) {
-            if(collaborationService.validatingCollaborationItem(item)){
+            if(collaborationService.validateCollaborationItem(item)){
                 //code to call service to add new object in DB here...
                 vm.collaborationList.push(item);
                 vm.isModelOpen = false;

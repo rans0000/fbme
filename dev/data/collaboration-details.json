@@ -1,0 +1,142 @@
+{
+    "collaborationDetails": {
+        "items": [
+            {
+                "type": "Folder",
+                "version": 2,
+                "title": "Folder 1.1",
+                "extension": "",
+                "description": "HR related document",
+                "tag": "",
+                "fileCategory": "HR",
+                "createdBy": "Sakthi Saravana Muthu",
+                "modifiedBy": "Raj Manmuthu",
+                "activities": "Download (12)",
+                "created": "2016-03-05T00:00:00Z",
+                "modified": "2016-03-05T00:00:00Z",
+                "favourite": false,
+                "size": "",
+                "children": [
+                    {
+                        "type": "Folder",
+                        "version": 1,
+                        "title": "Folder 1.1.1",
+                        "extension": "",
+                        "description": "Admnistration related document",
+                        "tag": "",
+                        "fileCategory": "Operations",
+                        "createdBy": "James Hunt",
+                        "modifiedBy": "Oliver Kahn",
+                        "activities": "Download (2)",
+                        "created": "2016-03-05T00:00:00Z",
+                        "modified": "2016-03-05T00:00:00Z",
+                        "favourite": true,
+                        "size": "",
+                        "children": []
+                    },
+                    {
+                        "type": "Folder",
+                        "version": 1,
+                        "title": "Folder 1.1.2",
+                        "extension": "",
+                        "description": "HR related document",
+                        "tag": "",
+                        "fileCategory": "HR",
+                        "createdBy": "Manius Julius",
+                        "modifiedBy": "Anita Hunt",
+                        "activities": "Download (8)",
+                        "created": "2015-02-01T00:00:00Z",
+                        "modified": "2015-03-06T00:00:00Z",
+                        "favourite": false,
+                        "size": "",
+                        "children": []
+                    },
+                    {
+                        "type": "File",
+                        "version": 2,
+                        "title": "Doc4",
+                        "extension": "txt",
+                        "description": "Hiring related document",
+                        "tag": "",
+                        "fileCategory": "HR",
+                        "createdBy": "Emil Smith",
+                        "modifiedBy": "Emil Smth",
+                        "activities": "Download (12)",
+                        "created": "2016-06-04T00:00:00Z",
+                        "modified": "2016-07-6T00:00:00Z",
+                        "favourite": false,
+                        "size": "3KB"
+                    }
+                ]
+            },
+            {
+                "type": "Folder",
+                "version": 3,
+                "title": "Folder 1.2",
+                "extension": "",
+                "description": "Admnistration related document",
+                "tag": "",
+                "fileCategory": "Operations",
+                "createdBy": "Saravana Muthu",
+                "modifiedBy": "Oliver 978",
+                "activities": "Download (2)",
+                "created": "2016-03-05T00:00:00Z",
+                "modified": "2016-03-05T00:00:00Z",
+                "favourite": false,
+                "size": "",
+                "children": [
+                    {
+                        "type": "File",
+                        "version": 2,
+                        "title": "Doc3",
+                        "extension": "pdf",
+                        "description": "Financial related document",
+                        "tag": "",
+                        "fileCategory": "HR",
+                        "createdBy": "Sakthi Saravana Muthu",
+                        "modifiedBy": "Raj Manmuthu",
+                        "activities": "Download (12)",
+                        "created": "2016-06-04T00:00:00Z",
+                        "modified": "2016-07-6T00:00:00Z",
+                        "favourite": false,
+                        "size": "15KB"
+                    }
+                ]
+            },
+            {
+                "type": "Folder",
+                "version": 3,
+                "title": "Folder 1.3",
+                "extension": "",
+                "description": "Misc document",
+                "tag": "",
+                "fileCategory": "Operations",
+                "createdBy": "Saravana Muthu",
+                "modifiedBy": "Oliver 978",
+                "activities": "Download (2)",
+                "created": "2016-03-05T00:00:00Z",
+                "modified": "2016-03-05T00:00:00Z",
+                "favourite": false,
+                "size": "",
+                "children": [
+                    {
+                        "type": "File",
+                        "version": 2,
+                        "title": "erfomance review",
+                        "extension": "pdf",
+                        "description": "Administration related document",
+                        "tag": "",
+                        "fileCategory": "HR",
+                        "createdBy": "Sakthi Saravana Muthu",
+                        "modifiedBy": "Raj Manmuthu",
+                        "activities": "Download (12)",
+                        "created": "2016-06-04T00:00:00Z",
+                        "modified": "2016-07-6T00:00:00Z",
+                        "favourite": false,
+                        "size": "4KB"
+                    }
+                ]
+            }
+        ]
+    }
+}

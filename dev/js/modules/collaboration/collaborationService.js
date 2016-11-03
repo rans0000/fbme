@@ -12,7 +12,9 @@
         var serviceObject = {};
         serviceObject.getCollaborationList = getCollaborationList;
         serviceObject.getNewCollaborationObject = getNewCollaborationObject;
-        serviceObject.validatingCollaborationItem = validatingCollaborationItem;
+        serviceObject.validateCollaborationItem = validateCollaborationItem;
+        serviceObject.getCollaborationDetails = getCollaborationDetails;
+        serviceObject.editFileFolderItem = editFileFolderItem;
         return serviceObject;
 
         //--------------------------------------
@@ -36,7 +38,7 @@
             };
         }
 
-        function validatingCollaborationItem (item) {
+        function validateCollaborationItem (item) {
             var isValid = true;
             if(item !== null){
                 if(item.name === '' || item.titleHolder === ''){
@@ -49,6 +51,13 @@
             }
 
             return isValid;
+        }
+
+        function getCollaborationDetails () {
+            return $http.get('data/collaboration-details.json')
+                .then(function (response) {
+                return response.data.collaborationDetails.items;
+            });
         }
 
         function validateDate (date) {
@@ -66,9 +75,28 @@
             else {
                 isValid = false; // not a date
             }
-            
+
             return isValid;
         }
+    }
+
+    function validateFileFolderItem (item) {
+        var isValid = false;
+        if(item.title || item.description){
+            isValid = true;
+        }
+        return isValid;
+    }
+
+    function editFileFolderItem (original, copy) {
+        var isSuccess = validateFileFolderItem(copy);
+        if(isSuccess){
+            original.title = copy.title;
+            original.description = copy.description;
+            original.tag = copy.tag;
+            original.fileCategory = copy.fileCategory;
+        }
+        return isSuccess;
     }
 
 })();
