@@ -87,6 +87,7 @@
             vm.selectedFolder = item;
             vm.selectedItem = {};
             vm.selectedItemCopy = null;
+            $scope.$broadcast('folderSelectRight', item);
         }
     }
 

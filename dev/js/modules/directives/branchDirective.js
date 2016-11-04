@@ -37,9 +37,17 @@
         function BranchController ($scope) {
             var vm = this;
             vm.onItemClick = onItemClick;
+            $scope.$on('folderSelectRight', onFolderSelect);
             
             function onItemClick (item) {
                 $scope.$emit('folderSelect', item);
+            }
+            
+            function onFolderSelect (event, item) {
+                console.log('hhhh');
+                if(item === vm.item){
+                    console.log('they r equal');
+                }
             }
         }
     }
