@@ -22,24 +22,24 @@
             bindToController: true
         };
 
-        BranchController.$inject = ['$rootScope'];
+        BranchController.$inject = ['$scope'];
         
         return directiveObject;
 
-        function branchLink (scope, element, attributes, ctrl) {
+        function branchLink (scope, element) {
             if(angular.isArray(scope.branch.item.children)){
-                $compile('<tree collection="branch.item.children"></tree>')(scope, function (cloned, scope) {
+                $compile('<tree collection="branch.item.children"></tree>')(scope, function (cloned) {
                     element.append(cloned);
                 });
             }
         }
 
-        function BranchController ($rootScope) {
+        function BranchController ($scope) {
             var vm = this;
             vm.onItemClick = onItemClick;
             
             function onItemClick (item) {
-                $rootScope.$broadcast('folderSelect', item);
+                $scope.$emit('folderSelect', item);
             }
         }
     }
