@@ -25,7 +25,9 @@
     </div>
     <div class="row">
         <div class="col-xs-3">
-            <tree collection="CollaborationVM.itemTree"></tree>
+            <div class="left-pane">
+                <tree collection="CollaborationVM.itemTree"></tree>
+            </div>
         </div>
         <div class="col-xs-9">
             <table class="table table-hover table-primary">
@@ -42,7 +44,10 @@
                 <tbody>
                     <tr ng-repeat="item in CollaborationVM.selectedFolder.children | filter : CollaborationVM.selectedFolderFilter">
                         <td><input type="radio" ng-model="CollaborationVM.selectedItem" ng-value="item" ng-click="CollaborationVM.onItemSelected(item)"></td>
-                        <td><a><span class="glyphicon" ng-class="{'glyphicon-folder-close': item.type == 'Folder', 'glyphicon-file': item.type == 'File'}"></span> {{item.title}}</a></td>
+                        <td>
+                            <a ng-click="CollaborationVM.populateSelectedFolder(item)" ng-if="item.type == 'Folder'"><span class="glyphicon glyphicon-folder-close"></span> {{item.title}}</a>
+                            <div ng-if="item.type == 'File'"><span class="glyphicon glyphicon-file"></span> {{item.title}}</div>
+                        </td>
                         <td>{{item.created | date}}</td>
                         <td>{{item.modified | date}}</td>
                         <td>{{item.size}}</td>

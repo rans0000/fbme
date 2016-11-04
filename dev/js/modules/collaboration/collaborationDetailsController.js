@@ -7,8 +7,8 @@
     angular.module('collaboration.module')
         .controller('CollaborationDetailsController', CollaborationDetailsController);
 
-    CollaborationDetailsController.$inject = ['collaborationService'];
-    function CollaborationDetailsController (collaborationService) {
+    CollaborationDetailsController.$inject = ['collaborationService', '$scope'];
+    function CollaborationDetailsController (collaborationService, $scope) {
         var vm = this;
         vm.itemTree = [];
         vm.selectedFolder = {};
@@ -21,7 +21,10 @@
         vm.onItemSelected = onItemSelected;
         vm.shareItem = shareItem;
         vm.onEditselectedItemSubmit = onEditselectedItemSubmit;
+        vm.populateSelectedFolder = populateSelectedFolder;
+        $scope.$on('folderSelect', onFolderSelect);
 
+        
         init();
 
         //--------------------------------------
@@ -37,7 +40,8 @@
             vm.itemTree = response;
             //vm.selectedFolder = response.length? response[0] : {};
             if(response.length && response[0].hasOwnProperty('children') && response[0].children.length ){
-                vm.selectedFolder = response[0];
+                //vm.selectedFolder = response[0];
+                populateSelectedFolder(response[0]);
             }
         }
 
@@ -73,6 +77,16 @@
             else{
                 alert('invalid data');
             }
+        }
+        
+        function onFolderSelect (event, item) {
+            populateSelectedFolder(item);
+        }
+        
+        function populateSelectedFolder (item) {
+            vm.selectedFolder = item;
+            vm.selectedItem = {};
+            vm.selectedItemCopy = null;
         }
     }
 

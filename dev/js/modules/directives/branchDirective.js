@@ -22,6 +22,8 @@
             bindToController: true
         };
 
+        BranchController.$inject = ['$rootScope'];
+        
         return directiveObject;
 
         function branchLink (scope, element, attributes, ctrl) {
@@ -32,8 +34,13 @@
             }
         }
 
-        function BranchController () {
+        function BranchController ($rootScope) {
             var vm = this;
+            vm.onItemClick = onItemClick;
+            
+            function onItemClick (item) {
+                $rootScope.$broadcast('folderSelect', item);
+            }
         }
     }
 })();

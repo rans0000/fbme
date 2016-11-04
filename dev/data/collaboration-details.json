@@ -32,7 +32,92 @@
                         "modified": "2016-03-05T00:00:00Z",
                         "favourite": true,
                         "size": "",
-                        "children": []
+                        "children": [
+                            {
+                                "type": "Folder",
+                                "version": 3,
+                                "title": "Folder 1.1.1.1",
+                                "extension": "",
+                                "description": "Misc document",
+                                "tag": "",
+                                "fileCategory": "Operations",
+                                "createdBy": "Saravana Muthu",
+                                "modifiedBy": "Oliver 978",
+                                "activities": "Download (2)",
+                                "created": "2016-03-05T00:00:00Z",
+                                "modified": "2016-03-05T00:00:00Z",
+                                "favourite": false,
+                                "size": "",
+                                "children": [
+                                    {
+                                        "type": "File",
+                                        "version": 2,
+                                        "title": "Perfomance review",
+                                        "extension": "pdf",
+                                        "description": "Administration related document",
+                                        "tag": "",
+                                        "fileCategory": "HR",
+                                        "createdBy": "Sakthi Saravana Muthu",
+                                        "modifiedBy": "Raj Manmuthu",
+                                        "activities": "Download (12)",
+                                        "created": "2016-06-04T00:00:00Z",
+                                        "modified": "2016-07-6T00:00:00Z",
+                                        "favourite": false,
+                                        "size": "4KB"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "Folder",
+                                "version": 2,
+                                "title": "Folder 1.1.1.2",
+                                "extension": "",
+                                "description": "Misc document",
+                                "tag": "",
+                                "fileCategory": "Operations",
+                                "createdBy": "Erik Hatheay",
+                                "modifiedBy": "M. Jerrin",
+                                "activities": "Download (12)",
+                                "created": "2014-02-05T00:00:00Z",
+                                "modified": "2014-02-05T00:00:00Z",
+                                "favourite": false,
+                                "size": "",
+                                "children": [
+                                    {
+                                        "type": "File",
+                                        "version": 2,
+                                        "title": "Perfomance review",
+                                        "extension": "pdf",
+                                        "description": "Administration related document",
+                                        "tag": "",
+                                        "fileCategory": "HR",
+                                        "createdBy": "Sakthi Saravana Muthu",
+                                        "modifiedBy": "Raj Manmuthu",
+                                        "activities": "Download (12)",
+                                        "created": "2016-06-04T00:00:00Z",
+                                        "modified": "2016-07-6T00:00:00Z",
+                                        "favourite": false,
+                                        "size": "4KB"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "File",
+                                "version": 1,
+                                "title": "Fnancal Report",
+                                "extension": "doc",
+                                "description": "Finance related document",
+                                "tag": "",
+                                "fileCategory": "HR",
+                                "createdBy": "Robin V Possie",
+                                "modifiedBy": "Leon Messinger",
+                                "activities": "Download (7)",
+                                "created": "2016-06-04T00:00:00Z",
+                                "modified": "2016-07-6T00:00:00Z",
+                                "favourite": false,
+                                "size": "4KB"
+                            }
+                        ]
                     },
                     {
                         "type": "Folder",
@@ -122,7 +207,7 @@
                     {
                         "type": "File",
                         "version": 2,
-                        "title": "erfomance review",
+                        "title": "Perfomance review",
                         "extension": "pdf",
                         "description": "Administration related document",
                         "tag": "",

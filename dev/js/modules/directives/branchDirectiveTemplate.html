@@ -1,1 +1,3 @@
-<li ng-show="branch.item.type == 'Folder'"><span class="glyphicon glyphicon-folder-close"></span> {{branch.item.title}}</li>
+<li ng-show="branch.item.type == 'Folder'">
+    <div class="item-name" ng-click="branch.onItemClick(branch.item)"><span class="glyphicon glyphicon-folder-close"></span> {{branch.item.title}}</div>
+</li>

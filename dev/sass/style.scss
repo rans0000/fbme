@@ -13,6 +13,12 @@ body{
 }
 
 /*======================================================*/
+/*overrides*/
+ul, ol{
+    padding-left: 15px;list-style-type: none;
+}
+
+/*======================================================*/
 /*componenets*/
 .table-primary{
     background: #fff;
@@ -20,6 +26,14 @@ body{
 
 .breadcrumb{
     margin-bottom: ($line-height / 3);background-color: transparent;
+}
+.menu-tree{
+    li{
+        
+    }
+    .item-name{
+        margin-bottom: 6px;display: inline-block;
+    }
 }
 
 /*======================================================*/
@@ -64,6 +78,9 @@ body{
 }
 .popup-panel{
     width: 100%;max-width: 400px;z-index: 101;position: relative;margin: 30px auto 0;
+}
+.left-pane{
+    overflow: auto;
 }
 /*======================================================*/
 /*footer*/
