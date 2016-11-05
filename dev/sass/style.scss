@@ -33,6 +33,9 @@ ul, ol{
     }
     .item-name{
         margin-bottom: 6px;display: inline-block;
+        &.active{
+            color: #7759c9;
+        }
     }
 }
 

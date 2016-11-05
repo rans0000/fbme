@@ -22,7 +22,7 @@
         vm.shareItem = shareItem;
         vm.onEditselectedItemSubmit = onEditselectedItemSubmit;
         vm.populateSelectedFolder = populateSelectedFolder;
-        $scope.$on('folderSelect', onFolderSelect);
+        $scope.$on('folderSelectFromTree', onFolderSelect);
 
         
         init();
@@ -87,7 +87,7 @@
             vm.selectedFolder = item;
             vm.selectedItem = {};
             vm.selectedItemCopy = null;
-            $scope.$broadcast('folderSelectRight', item);
+            $scope.$broadcast('folderSelectFromExplorer', item);
         }
     }
 

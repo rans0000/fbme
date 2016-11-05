@@ -23,7 +23,7 @@
         };
 
         BranchController.$inject = ['$scope'];
-        
+
         return directiveObject;
 
         function branchLink (scope, element) {
@@ -36,17 +36,20 @@
 
         function BranchController ($scope) {
             var vm = this;
+            vm.isActive = false;
             vm.onItemClick = onItemClick;
-            $scope.$on('folderSelectRight', onFolderSelect);
-            
+            $scope.$on('folderSelectFromExplorer', onFolderSelect);
+
             function onItemClick (item) {
-                $scope.$emit('folderSelect', item);
+                $scope.$emit('folderSelectFromTree', item);
             }
-            
+
             function onFolderSelect (event, item) {
-                console.log('hhhh');
                 if(item === vm.item){
-                    console.log('they r equal');
+                    vm.isActive = true;
+                }
+                else{
+                    vm.isActive = false;
                 }
             }
         }
