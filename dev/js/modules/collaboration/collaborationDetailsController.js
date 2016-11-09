@@ -23,6 +23,7 @@
         vm.shareItem = shareItem;
         vm.onEditselectedItemSubmit = onEditselectedItemSubmit;
         vm.populateSelectedFolder = populateSelectedFolder;
+        vm.onDeleteItems = onDeleteItems;
         $scope.$on('folderSelectFromTree', onFolderSelect);
 
 
@@ -101,6 +102,18 @@
                 value.checked = false;
             });
             $scope.$broadcast('folderSelectFromExplorer', item);
+        }
+        
+        function onDeleteItems () {
+            /*var index = vm.collaborationList.indexOf(item);
+            vm.collaborationList.splice(index, 1);*/
+            
+            angular.forEach(vm.selectedItemList, function (item) {
+                var index = vm.selectedFolder.children.indexOf(item);
+                if(index > -1){
+                    vm.selectedFolder.children.splice(index, 1);
+                }
+            });
         }
     }
 
