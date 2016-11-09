@@ -18,7 +18,6 @@
 
     function CoreController () {
         var vm = this;
-        vm.value= 33;
     }
 
     routerConfiguration.$inject = ['$stateProvider', '$urlRouterProvider'];

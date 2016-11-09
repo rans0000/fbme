@@ -7,14 +7,15 @@
     angular.module('collaboration.module')
         .controller('CollaborationDetailsController', CollaborationDetailsController);
 
-    CollaborationDetailsController.$inject = ['collaborationService', '$scope'];
-    function CollaborationDetailsController (collaborationService, $scope) {
+    CollaborationDetailsController.$inject = ['collaborationService', '$scope', '$filter'];
+    function CollaborationDetailsController (collaborationService, $scope, $filter) {
         var vm = this;
         vm.itemTree = [];
         vm.selectedFolder = {};
         vm.selectedFolderFilter = '';
-        vm.selectedItem = {};
+        vm.selectedItem = null;
         vm.selectedItemCopy = null;
+        vm.selectedItemList = [];
 
         vm.toggleFavouriteStatus = toggleFavouriteStatus;
         vm.toggleFavouriteText = toggleFavouriteText;
@@ -24,7 +25,7 @@
         vm.populateSelectedFolder = populateSelectedFolder;
         $scope.$on('folderSelectFromTree', onFolderSelect);
 
-        
+
         init();
 
         //--------------------------------------
@@ -38,9 +39,7 @@
 
         function getCollaborationDetailsSuccess (response) {
             vm.itemTree = response;
-            //vm.selectedFolder = response.length? response[0] : {};
             if(response.length && response[0].hasOwnProperty('children') && response[0].children.length ){
-                //vm.selectedFolder = response[0];
                 populateSelectedFolder(response[0]);
             }
         }
@@ -64,9 +63,18 @@
             alert('share functionality not implimented');
         }
 
-        function onItemSelected (item) {
-            vm.selectedItemCopy = angular.copy(item);
-            console.log(vm.selectedItemCopy);
+        function onItemSelected () {
+            //vm.selectedItemCopy = angular.copy(item);
+            vm.selectedItemList = $filter('filter')(vm.selectedFolder.children, {checked: true});
+            //console.log(vm.selectedItemList);
+            if(vm.selectedItemList.length === 1){
+                vm.selectedItem = vm.selectedItemList[0];
+                vm.selectedItemCopy = angular.copy(vm.selectedItemList[0]);
+            }
+            else{
+               vm.selectedItem = null;
+                vm.selectedItemCopy = null;
+            }
         }
 
         function onEditselectedItemSubmit () {
@@ -78,15 +86,20 @@
                 alert('invalid data');
             }
         }
-        
+
         function onFolderSelect (event, item) {
             populateSelectedFolder(item);
         }
-        
+
         function populateSelectedFolder (item) {
             vm.selectedFolder = item;
-            vm.selectedItem = {};
+            vm.selectedItem = null;
             vm.selectedItemCopy = null;
+            vm.selectedItemList = [];
+            angular.forEach(vm.selectedFolder.children, function (value) {
+                console.log(value);
+                value.checked = false;
+            });
             $scope.$broadcast('folderSelectFromExplorer', item);
         }
     }
