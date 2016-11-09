@@ -24,127 +24,139 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-xs-3">
-            <div class="left-pane">
-                <tree collection="CollaborationVM.itemTree"></tree>
+        <div class="col-xs-12">
+            <div class="toolbar" ng-class="{'collapsed': CollaborationVM.isMenuCollapsed}">
+                <div class="btn-group pull-left">
+                    <button type="button" class="btn btn-link btn-sm" ng-click="CollaborationVM.toggleMenuCollapse()"><span class="glyphicon glyphicon-menu-hamburger"></span><span class="sr-only">Toggle Folder Tree</span></button>
+                </div>
+                <div ng-class="{'invisible ': !CollaborationVM.selectedItemList.length}">
+                    <button type="button" class="btn btn-link btn-sm" ng-click="CollaborationVM.onDeleteItems()"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+                    <button type="button" class="btn btn-link btn-sm"><span class="glyphicon glyphicon-download"></span> Download</button>
+                </div>
             </div>
         </div>
-        <div class="col-xs-9">
-            <div class="row">
-                <div class="col-sx-12">
-                   <div class="toolbar" ng-class="{'invisible ': !CollaborationVM.selectedItemList.length}">
-                       <button type="button" class="btn btn-link btn-sm" ng-click="CollaborationVM.onDeleteItems()"><span class="glyphicon glyphicon-trash"></span> Delete</button>
-                       <button type="button" class="btn btn-link btn-sm"><span class="glyphicon glyphicon-download"></span> Download</button>
-                   </div>
-                    <table class="table table-hover table-primary">
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th>Folder Name</th>
-                                <th>Created Date</th>
-                                <th>Last modified On</th>
-                                <th>Size</th>
-                                <th class="text-right">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr ng-repeat="item in CollaborationVM.selectedFolder.children | filter : CollaborationVM.selectedFolderFilter">
-                                <td><input type="checkbox" ng-model="item.checked" ng-change="CollaborationVM.onItemSelected()"></td>
-                                <td>
-                                    <a ng-click="CollaborationVM.populateSelectedFolder(item)" ng-if="item.type == 'Folder'"><span class="glyphicon glyphicon-folder-close"></span> {{item.title}}</a>
-                                    <div ng-if="item.type == 'File'"><span class="glyphicon glyphicon-file"></span> {{item.title}}</div>
-                                </td>
-                                <td>{{item.created | date}}</td>
-                                <td>{{item.modified | date}}</td>
-                                <td>{{item.size}}</td>
-                                <td class="text-right">
-                                    <button class="btn btn-default btn-xs" ng-click="CollaborationVM.toggleFavouriteStatus(item)">
-                                        <!--<span class="glyphicon glyphicon-star-empty"></span>-->
-                                        <span class="glyphicon" ng-class="item.favourite? 'glyphicon-star' : 'glyphicon-star-empty'"></span>
-                                        <span class="sr-only">CollaborationVM.toggleFavouriteText(item)</span>
-                                    </button>
-                                    <button class="btn btn-danger btn-xs" ng-click="CollaborationVM.shareItem()">
-                                        <span class="glyphicon glyphicon-share"></span>
-                                        <span class="sr-only">Share</span>
-                                    </button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div class="panel panel-default" ng-show="CollaborationVM.selectedItemCopy">
-                        <div class="panel-heading">
-                            <h2 class="panel-title">File Properties of {{CollaborationVM.selectedItemCopy.title}}</h2>
-                        </div>
-                        <div class="panel-body">
-                            <form ng-submit="CollaborationVM.onEditselectedItemSubmit()">
-                                <div class="row">
-                                    <div class="col-xs-6 col-md-6">
-                                        <table class="table">
-                                            <tbody>
-                                                <tr>
-                                                    <th>Version</th>
-                                                    <td>{{CollaborationVM.selectedItemCopy.version}}</td>
-                                                </tr>
-                                                <tr>
-                                                    <th>Created by</th>
-                                                    <td>{{CollaborationVM.selectedItemCopy.created}}</td>
-                                                </tr>
-                                                <tr>
-                                                    <th>Modified by</th>
-                                                    <td>{{CollaborationVM.selectedItemCopy.modified}}</td>
-                                                </tr>
-                                                <tr>
-                                                    <th>Activities</th>
-                                                    <td>{{CollaborationVM.selectedItemCopy.activities}}</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <div class="col-xs-6 col-md-6">
-                                        <table class="table">
-                                            <tbody>
-                                                <tr class="form-group">
-                                                    <th><label for="selecTitle">Title</label></th>
-                                                    <td>
-                                                        <input type="text" id="selecTitle" class="form-control" ng-model="CollaborationVM.selectedItemCopy.title">
-                                                    </td>
-                                                </tr>
-                                                <tr class="form-group">
-                                                    <th><label for="selectDesc">Descrption</label></th>
-                                                    <td>
-                                                        <input type="text" id="selectDesc" class="form-control" ng-model="CollaborationVM.selectedItemCopy.description">
-                                                    </td>
-                                                </tr>
-                                                <tr class="form-group">
-                                                    <th><label for="selectTag">Tag</label></th>
-                                                    <td>
-                                                        <input type="text" id="selectTag" class="form-control" ng-model="CollaborationVM.selectedItemCopy.tag">
-                                                    </td>
-                                                </tr>
-                                                <tr class="form-group">
-                                                    <th><label for="selectCat">File Category</label></th>
-                                                    <td>
-                                                        <select id="selectCat" class="form-control" ng-model="CollaborationVM.selectedItemCopy.fileCategory">
-                                                            <option value="HR">HR</option>
-                                                            <option value="Operations">Operations</option>
-                                                        </select>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
+    </div>
+    <div class="collaboration-pane row" ng-class="{'collapsed': CollaborationVM.isMenuCollapsed}">
+        <div class="col-xs-12">
+            <div class="tree-pane">
+                <div class="left-pane">
+                    <tree collection="CollaborationVM.itemTree"></tree>
+                </div>
+            </div>
+            <div class="explorer-pane">
+                <div class="explorer-pane-inner">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <table class="table table-hover table-primary">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Folder Name</th>
+                                        <th>Created Date</th>
+                                        <th>Last modified On</th>
+                                        <th>Size</th>
+                                        <th class="text-right">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="item in CollaborationVM.selectedFolder.children | filter : CollaborationVM.selectedFolderFilter">
+                                        <td><input type="checkbox" ng-model="item.checked" ng-change="CollaborationVM.onItemSelected()"></td>
+                                        <td>
+                                            <a ng-click="CollaborationVM.populateSelectedFolder(item)" ng-if="item.type == 'Folder'"><span class="glyphicon glyphicon-folder-close"></span> {{item.title}}</a>
+                                            <div ng-if="item.type == 'File'"><span class="glyphicon glyphicon-file"></span> {{item.title}}</div>
+                                        </td>
+                                        <td>{{item.created | date}}</td>
+                                        <td>{{item.modified | date}}</td>
+                                        <td>{{item.size}}</td>
+                                        <td class="text-right">
+                                            <button class="btn btn-default btn-xs" ng-click="CollaborationVM.toggleFavouriteStatus(item)">
+                                                <!--<span class="glyphicon glyphicon-star-empty"></span>-->
+                                                <span class="glyphicon" ng-class="item.favourite? 'glyphicon-star' : 'glyphicon-star-empty'"></span>
+                                                <span class="sr-only">CollaborationVM.toggleFavouriteText(item)</span>
+                                            </button>
+                                            <button class="btn btn-danger btn-xs" ng-click="CollaborationVM.shareItem()">
+                                                <span class="glyphicon glyphicon-share"></span>
+                                                <span class="sr-only">Share</span>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="panel panel-default" ng-show="CollaborationVM.selectedItemCopy">
+                                <div class="panel-heading">
+                                    <h2 class="panel-title">File Properties of {{CollaborationVM.selectedItemCopy.title}}</h2>
                                 </div>
-                                <div class="row">
-                                    <div class="col-xs-12 text-right">
-                                        <button type="Submit" class="btn btn-primary" ng-disabled="CollaborationVM.selectedItemCopy === null">Save</button>
-                                    </div>
+                                <div class="panel-body">
+                                    <form ng-submit="CollaborationVM.onEditselectedItemSubmit()">
+                                        <div class="row">
+                                            <div class="col-xs-6 col-md-6">
+                                                <table class="table">
+                                                    <tbody>
+                                                        <tr>
+                                                            <th>Version</th>
+                                                            <td>{{CollaborationVM.selectedItemCopy.version}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Created by</th>
+                                                            <td>{{CollaborationVM.selectedItemCopy.created}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Modified by</th>
+                                                            <td>{{CollaborationVM.selectedItemCopy.modified}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Activities</th>
+                                                            <td>{{CollaborationVM.selectedItemCopy.activities}}</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="col-xs-6 col-md-6">
+                                                <table class="table">
+                                                    <tbody>
+                                                        <tr class="form-group">
+                                                            <th><label for="selecTitle">Title</label></th>
+                                                            <td>
+                                                                <input type="text" id="selecTitle" class="form-control" ng-model="CollaborationVM.selectedItemCopy.title">
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="form-group">
+                                                            <th><label for="selectDesc">Descrption</label></th>
+                                                            <td>
+                                                                <input type="text" id="selectDesc" class="form-control" ng-model="CollaborationVM.selectedItemCopy.description">
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="form-group">
+                                                            <th><label for="selectTag">Tag</label></th>
+                                                            <td>
+                                                                <input type="text" id="selectTag" class="form-control" ng-model="CollaborationVM.selectedItemCopy.tag">
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="form-group">
+                                                            <th><label for="selectCat">File Category</label></th>
+                                                            <td>
+                                                                <select id="selectCat" class="form-control" ng-model="CollaborationVM.selectedItemCopy.fileCategory">
+                                                                    <option value="HR">HR</option>
+                                                                    <option value="Operations">Operations</option>
+                                                                </select>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-12 text-right">
+                                                <button type="Submit" class="btn btn-primary" ng-disabled="CollaborationVM.selectedItemCopy === null">Save</button>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
-                            </form>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
 </div>

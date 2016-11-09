@@ -29,7 +29,7 @@ ul, ol{
 }
 .menu-tree{
     li{
-        
+
     }
     .item-name{
         margin-bottom: 6px;display: inline-block;
@@ -82,8 +82,36 @@ ul, ol{
 .popup-panel{
     width: 100%;max-width: 400px;z-index: 101;position: relative;margin: 30px auto 0;
 }
+.btn-group{
+    transition: .3s;
+    .toolbar &{
+        width: 250px;
+    }
+    .toolbar.collapsed &{
+        width: 60px;
+    }
+
+}
+.collaboration-pane{
+    overflow: hidden;
+}
+.tree-pane{
+    float: left;width: 0;width: 230px;transform: translate3d(0, 0, 0);transition: .3s;
+    .collaboration-pane.collapsed &{
+        transform: translate3d(-230px, 0, 0);width: 0;
+    }
+}
 .left-pane{
     overflow: auto;
+}
+.explorer-pane{
+    margin-left: 250px;transition: .3s;
+    .collaboration-pane.collapsed &{
+        margin-left: 0;
+    }
+}
+.explorer-pane-inner{
+    float: left;width: 100%;
 }
 /*======================================================*/
 /*footer*/

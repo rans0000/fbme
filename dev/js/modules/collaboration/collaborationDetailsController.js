@@ -16,6 +16,7 @@
         vm.selectedItem = null;
         vm.selectedItemCopy = null;
         vm.selectedItemList = [];
+        vm.isMenuCollapsed = false;
 
         vm.toggleFavouriteStatus = toggleFavouriteStatus;
         vm.toggleFavouriteText = toggleFavouriteText;
@@ -24,6 +25,7 @@
         vm.onEditselectedItemSubmit = onEditselectedItemSubmit;
         vm.populateSelectedFolder = populateSelectedFolder;
         vm.onDeleteItems = onDeleteItems;
+        vm.toggleMenuCollapse = toggleMenuCollapse;
         $scope.$on('folderSelectFromTree', onFolderSelect);
 
 
@@ -73,7 +75,7 @@
                 vm.selectedItemCopy = angular.copy(vm.selectedItemList[0]);
             }
             else{
-               vm.selectedItem = null;
+                vm.selectedItem = null;
                 vm.selectedItemCopy = null;
             }
         }
@@ -98,22 +100,22 @@
             vm.selectedItemCopy = null;
             vm.selectedItemList = [];
             angular.forEach(vm.selectedFolder.children, function (value) {
-                console.log(value);
                 value.checked = false;
             });
             $scope.$broadcast('folderSelectFromExplorer', item);
         }
-        
+
         function onDeleteItems () {
-            /*var index = vm.collaborationList.indexOf(item);
-            vm.collaborationList.splice(index, 1);*/
-            
             angular.forEach(vm.selectedItemList, function (item) {
                 var index = vm.selectedFolder.children.indexOf(item);
                 if(index > -1){
                     vm.selectedFolder.children.splice(index, 1);
                 }
             });
+        }
+        
+        function toggleMenuCollapse () {
+            vm.isMenuCollapsed = !vm.isMenuCollapsed;
         }
     }
 
