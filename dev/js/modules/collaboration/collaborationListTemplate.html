@@ -1,6 +1,6 @@
 <div>
     <header class="main-toolbar">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-xs-12 col-sm-6">
                     <ol class="breadcrumb">
@@ -22,7 +22,7 @@
             </div>
         </div>
     </header>
-    <div class="container">
+    <div class="container-fluid">
         <table class="table table-hover table-primary">
             <thead>
                 <tr>
@@ -57,7 +57,7 @@
     </div>
     <section class="popup-wrapper" ng-show="CollaborationListVM.isModelOpen">
         <div class="popup-overlay"></div>
-        <div class="panel panel-default popup-panel">
+        <div class="panel panel-primary popup-panel">
             <header class="panel-heading clearfix">
                 <h1 class="panel-title pull-left">Create new Collaboration</h1>
                 <button type="button" class="close" aria-label="Close" ng-click="CollaborationListVM.activateCollaborationDialog(false)"><span aria-hidden="true">&times;</span></button>
@@ -67,28 +67,28 @@
                     <div class="form-group">
                         <label for="collabName" class="col-sm-4 control-label">Name</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="collabName" ng-model="CollaborationListVM.newCollaboration.name">
+                            <input type="text" class="form-control input-sm" id="collabName" ng-model="CollaborationListVM.newCollaboration.name">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="collabDescription" class="col-sm-4 control-label">Description</label>
                         <div class="col-sm-8">
-                            <textarea class="form-control" rows="3" id="collabDescription" ng-model="CollaborationListVM.newCollaboration.description"></textarea>
+                            <textarea class="form-control input-sm" rows="3" id="collabDescription" ng-model="CollaborationListVM.newCollaboration.description"></textarea>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="collabTitleHolder" class="col-sm-4 control-label">Title Holder</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="collabTitleHolder" ng-model="CollaborationListVM.newCollaboration.titleHolder">
+                            <input type="text" class="form-control input-sm" id="collabTitleHolder" ng-model="CollaborationListVM.newCollaboration.titleHolder">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="collaborationStartDate" class="col-sm-4 control-label">Start Date</label>
                         <div class="col-sm-8">
                             <p class="input-group">
-                                <input type="text" id="collaborationStartDate" class="form-control" uib-datepicker-popup="{{CollaborationListVM.format}}" ng-model="CollaborationListVM.newCollaboration.startDate" ng-required="true" close-text="Close" is-open="CollaborationListVM.startDateOpen" datepicker-options="CollaborationListVM.dateOptions">
+                                <input type="text" id="collaborationStartDate" class="form-control input-sm" uib-datepicker-popup="{{CollaborationListVM.format}}" ng-model="CollaborationListVM.newCollaboration.startDate" ng-required="true" close-text="Close" is-open="CollaborationListVM.startDateOpen" datepicker-options="CollaborationListVM.dateOptions">
                                 <span class="input-group-btn">
-                                    <button type="button" class="btn btn-default" ng-click="CollaborationListVM.open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                                    <button type="button" class="btn btn-default btn-sm" ng-click="CollaborationListVM.open1()"><i class="glyphicon glyphicon-calendar"></i></button>
                                 </span>
                             </p>
                         </div>
@@ -97,9 +97,9 @@
                         <label for="collaborationExpiryDate" class="col-sm-4 control-label">Start Date</label>
                         <div class="col-sm-8">
                             <p class="input-group">
-                                <input type="text" id="collaborationExpiryDate" class="form-control" uib-datepicker-popup="{{CollaborationListVM.format}}" ng-model="CollaborationListVM.newCollaboration.expiryDate" ng-required="true" close-text="Close" is-open="CollaborationListVM.expiryDateOpen" datepicker-options="CollaborationListVM.dateOptions">
+                                <input type="text" id="collaborationExpiryDate" class="form-control input-sm" uib-datepicker-popup="{{CollaborationListVM.format}}" ng-model="CollaborationListVM.newCollaboration.expiryDate" ng-required="true" close-text="Close" is-open="CollaborationListVM.expiryDateOpen" datepicker-options="CollaborationListVM.dateOptions">
                                 <span class="input-group-btn">
-                                    <button type="button" class="btn btn-default" ng-click="CollaborationListVM.open2()"><i class="glyphicon glyphicon-calendar"></i></button>
+                                    <button type="button" class="btn btn-default btn-sm" ng-click="CollaborationListVM.open2()"><i class="glyphicon glyphicon-calendar"></i></button>
                                 </span>
                             </p>
                         </div>
