@@ -1,6 +1,6 @@
 <div>
-    <div class="container">
-        <header class="main-toolbar">
+    <header class="main-toolbar">
+        <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-sm-6">
                     <ol class="breadcrumb">
@@ -9,15 +9,20 @@
                     </ol>
                 </div>
                 <div class="col-xs-12 col-sm-6 text-right">
-                    <button type="button" class="btn btn-success" ng-click="CollaborationListVM.activateCollaborationDialog(true)">Create Collaboration</button>
+                    <button type="button" class="btn btn-success btn-sm" ng-click="CollaborationListVM.activateCollaborationDialog(true)">Create Collaboration</button>
                     <form class="form-inline search-primary" role="form">
                         <div class="form-group">
-                            <input type="text" class="form-control text-right" id="exampleInputEmail2" placeholder="Collaboration Search..." title="Collaboration Search" ng-model="CollaborationListVM.filterText">
+                            <div class="input-group">
+                                <input type="text" class="form-control text-right input-sm" id="exampleInputEmail2" placeholder="Collaboration Search..." title="Collaboration Search" ng-model="CollaborationListVM.filterText">
+                                <span class="input-group-addon glyphicon glyphicon-search"></span>
+                            </div>
                         </div>
                     </form>
                 </div>
             </div>
-        </header>
+        </div>
+    </header>
+    <div class="container">
         <table class="table table-hover table-primary">
             <thead>
                 <tr>

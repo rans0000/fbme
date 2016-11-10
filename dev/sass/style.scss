@@ -1,10 +1,12 @@
 @import "variables.scss";
+@import "font-mixins.scss";
 
+@include font-face("Futura2-Normal", "../fonts/Roboto-Regular-webfont");
 html{
     font-size: $font_size_base;vertical-align: baseline;font-weight: normal;
 }
 body{
-    background: $bg-color;font-weight: normal;font-size: $font-size-normal;line-height: $line-height;font-family: $font-primary;
+    background: $bg-color;font-weight: normal;font-size: $font-size-normal;line-height: $line-height;font-family: $font-primary;color: $text-color-primary;
 }
 %clearfix{
     &:after{
@@ -16,6 +18,19 @@ body{
 /*overrides*/
 ul, ol{
     padding-left: 15px;list-style-type: none;
+}
+
+.form-control{
+    border-radius: 2px;
+}
+.btn-group-sm>.btn, .btn-sm{
+    border-radius: 2px;
+}
+.btn-group-xs>.btn, .btn-xs{
+    border-radius: 0;
+}
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
+    padding: 6px 8px;
 }
 
 /*======================================================*/
@@ -65,7 +80,8 @@ ul, ol{
     }
 }
 .main-toolbar{
-    padding-top: ($line-height / 3);margin-bottom: ($line-height / 3);
+    background: #fff;box-shadow: 0 1px 3px rgba(0, 0, 0, .2);
+    padding-top: ($line-height / 3);padding-bottom: ($line-height / 3);margin-bottom: ($line-height / 3);
     .search-primary{
         display: inline-block;
     }
