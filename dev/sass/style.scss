@@ -28,13 +28,17 @@ ul, ol{
     margin-bottom: ($line-height / 3);background-color: transparent;
 }
 .menu-tree{
-    li{
-
+    display: none;
+    .left-pane > & {
+        display: block;
     }
     .item-name{
         margin-bottom: 6px;display: inline-block;
         &.active{
             color: #7759c9;
+        }
+        &.opened + .menu-tree{
+            display: block;
         }
     }
 }

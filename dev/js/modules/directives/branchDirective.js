@@ -37,8 +37,11 @@
         function BranchController ($scope) {
             var vm = this;
             vm.isActive = false;
+            vm.isOpen = false;
             vm.onItemClick = onItemClick;
+            vm.toggleOpenState = toggleOpenState;
             $scope.$on('folderSelectFromExplorer', onFolderSelect);
+            $scope.$on('folderOpened', folderOpenedLitener);
 
             function onItemClick (item) {
                 $scope.$emit('folderSelectFromTree', item);
@@ -47,10 +50,25 @@
             function onFolderSelect (event, item) {
                 if(item === vm.item){
                     vm.isActive = true;
+                    vm.isOpen = true;
+                    $scope.$emit('folderOpened');
                 }
                 else{
                     vm.isActive = false;
                 }
+            }
+
+            function toggleOpenState () {
+                vm.isOpen = !vm.isOpen;
+                if(vm.isOpen){
+                }
+                else{
+                    $scope.$emit('folderOpened');
+                }
+            }
+            
+            function folderOpenedLitener () {
+                console.log(vm.item.title);
             }
         }
     }

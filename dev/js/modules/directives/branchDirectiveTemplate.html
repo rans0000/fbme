@@ -1,3 +1,8 @@
 <li ng-show="branch.item.type == 'Folder'">
-    <div class="item-name" ng-class="{'active': branch.isActive}" ng-click="branch.onItemClick(branch.item)"><span class="glyphicon glyphicon-folder-close"></span> {{branch.item.title}}</div>
+    <div class="item-name" ng-class="{'active': branch.isActive, 'opened': branch.isOpen}">
+        <button type="button" class="btn btn-link btn-sm" ng-click="branch.toggleOpenState()">
+            <span class="glyphicon {{branch.isOpen? 'glyphicon-minus': 'glyphicon-plus'}}"></span>
+        </button>
+        <span ng-click="branch.onItemClick(branch.item)">{{branch.item.title}}</span>
+    </div>
 </li>
