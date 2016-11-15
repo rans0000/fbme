@@ -68,7 +68,7 @@
             }
             
             function folderOpenedLitener () {
-                console.log(vm.item.title);
+                //console.log(vm.item.title);
             }
         }
     }

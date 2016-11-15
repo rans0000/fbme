@@ -68,17 +68,7 @@
         }
 
         function onItemSelected () {
-            //vm.selectedItemCopy = angular.copy(item);
             vm.selectedItemList = $filter('filter')(vm.selectedFolder.children, {checked: true});
-            //console.log(vm.selectedItemList);
-            /*if(vm.selectedItemList.length === 1){
-                vm.selectedItem = vm.selectedItemList[0];
-                vm.selectedItemCopy = angular.copy(vm.selectedItemList[0]);
-            }
-            else{
-                vm.selectedItem = null;
-                vm.selectedItemCopy = null;
-            }*/
         }
 
         function toggleItemHighlighted (item) {

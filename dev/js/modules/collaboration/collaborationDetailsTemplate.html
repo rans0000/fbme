@@ -68,7 +68,7 @@
                                         </thead>
                                         <tbody>
                                             <tr ng-repeat="item in CollaborationVM.selectedFolder.children | filter : CollaborationVM.selectedFolderFilter" ng-click="CollaborationVM.toggleItemHighlighted(item)" ng-class="{'active': CollaborationVM.selectedItem === item}">
-                                                <td class="table-select-col"><input type="checkbox" ng-model="item.checked" ng-change="CollaborationVM.onItemSelected()"></td>
+                                                <td class="table-select-col"><input type="checkbox" ng-model="item.checked" ng-change="CollaborationVM.onItemSelected($event)" stop-propagation></td>
                                                 <td class="table-title-col">
                                                     <a ng-click="CollaborationVM.populateSelectedFolder(item)" ng-if="item.type == 'Folder'"><span class="glyphicon glyphicon-folder-close"></span> {{item.title}}</a>
                                                     <div ng-if="item.type == 'File'"><span class="glyphicon glyphicon-file"></span> {{item.title}}</div>
