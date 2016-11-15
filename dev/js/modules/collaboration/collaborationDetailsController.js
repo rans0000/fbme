@@ -21,6 +21,7 @@
         vm.toggleFavouriteStatus = toggleFavouriteStatus;
         vm.toggleFavouriteText = toggleFavouriteText;
         vm.onItemSelected = onItemSelected;
+        vm.toggleItemHighlighted = toggleItemHighlighted;
         vm.shareItem = shareItem;
         vm.onEditselectedItemSubmit = onEditselectedItemSubmit;
         vm.populateSelectedFolder = populateSelectedFolder;
@@ -70,13 +71,24 @@
             //vm.selectedItemCopy = angular.copy(item);
             vm.selectedItemList = $filter('filter')(vm.selectedFolder.children, {checked: true});
             //console.log(vm.selectedItemList);
-            if(vm.selectedItemList.length === 1){
+            /*if(vm.selectedItemList.length === 1){
                 vm.selectedItem = vm.selectedItemList[0];
                 vm.selectedItemCopy = angular.copy(vm.selectedItemList[0]);
             }
             else{
                 vm.selectedItem = null;
                 vm.selectedItemCopy = null;
+            }*/
+        }
+
+        function toggleItemHighlighted (item) {
+            if(item === vm.selectedItem){
+                vm.selectedItem = null;
+                vm.selectedItemCopy = null;
+            }
+            else{
+                vm.selectedItem = item;
+                vm.selectedItemCopy = angular.copy(item);
             }
         }
 
@@ -113,7 +125,7 @@
                 }
             });
         }
-        
+
         function toggleMenuCollapse () {
             vm.isMenuCollapsed = !vm.isMenuCollapsed;
         }
