@@ -35,8 +35,8 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="item in CollaborationListVM.collaborationList | filter: CollaborationListVM.filterText track by item.id">
-                    <td><a ui-sref="collaborationDetails({collaborationId:1})">{{item.name}}</a></td>
+                <tr ng-repeat="item in CollaborationListVM.collaborationList.slice(((CollaborationListVM.pagination.currentPage-1)*CollaborationListVM.pagination.itemsPerPage), ((CollaborationListVM.pagination.currentPage)*CollaborationListVM.pagination.itemsPerPage)) | filter: CollaborationListVM.filterText track by item.id">
+                    <td class="table-title"><a ui-sref="collaborationDetails({collaborationId:1})">{{item.name}}</a></td>
                     <td>{{item.titleHolder}}</td>
                     <td>{{item.startDate | date: 'MM/dd/yyyy'}}</td>
                     <td>{{item.expiryDate | date: 'MM/dd/yyyy'}}</td>
@@ -54,6 +54,9 @@
                 </tr>
             </tbody>
         </table>
+        <div class="paginaton-box">
+            <ul uib-pagination total-items="CollaborationListVM.pagination.totalItems" items-per-page="CollaborationListVM.pagination.itemsPerPage" ng-model="CollaborationListVM.pagination.currentPage" max-size="CollaborationListVM.pagination.maxSize" boundary-link-numbers="true" first-text="&laquo;" last-text="&raquo;" next-text="&rsaquo;" previous-text="&lsaquo;" force-ellipses="true" boundary-links="true" ng-change="CollaborationListVM.pageChanged()"></ul>
+        </div>
     </div>
     <section class="popup-wrapper" ng-show="CollaborationListVM.isModelOpen">
         <div class="popup-overlay"></div>

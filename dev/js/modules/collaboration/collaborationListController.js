@@ -24,10 +24,12 @@
             minDate: new Date(),
             startingDay: 1
         };
+        vm.pagination = getPaginationValues();
 
         vm.deleteCollaborationItem = deleteCollaborationItem;
         vm.activateCollaborationDialog = activateCollaborationDialog;
         vm.createCollaborationItem = createCollaborationItem;
+        vm.pageChanged = pageChanged;
         vm.open1 = open1;
         vm.open2 = open2;
 
@@ -72,13 +74,24 @@
             }
         }
 
-        
-
         function open1 () {
             vm.startDateOpen = true;
         }
         function open2 () {
             vm.expiryDateOpen = true;
+        }
+
+        function pageChanged () {
+            console.log(vm.pagination.currentPage);
+        }
+
+        function getPaginationValues () {
+            return {
+                totalItems: 4,
+                itemsPerPage: 2,
+                maxSize: 4,
+                currentPage: 1
+            };
         }
 
     }
