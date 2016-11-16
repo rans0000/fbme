@@ -18,6 +18,7 @@
         vm.selectedItemList = [];
         vm.isMenuCollapsed = false;
         vm.pagination = getPaginationValues();
+        vm.menuOptions = getmenuOptions();
 
         vm.toggleFavouriteStatus = toggleFavouriteStatus;
         vm.toggleFavouriteText = toggleFavouriteText;
@@ -144,6 +145,20 @@
 
         function pageChanged () {
             console.log(vm.pagination.currentPage);
+        }
+        
+        function getmenuOptions () {
+            return [
+                ['Select Folder Permission', rightClickMenuHandler],
+                ['Copy', rightClickMenuHandler],
+                ['Delete', rightClickMenuHandler],
+                ['Download', rightClickMenuHandler],
+                ['Copy to personal space', rightClickMenuHandler],
+            ];
+        }
+        
+        function rightClickMenuHandler ($itemScope, $event, modelValue, text, $li) {
+            console.log($li);
         }
     }
 

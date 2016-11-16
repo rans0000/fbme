@@ -7,6 +7,7 @@
     angular.module('app.core', [
         'ui.router',
         'ui.bootstrap',
+        'ui.bootstrap.contextMenu',
         'collaboration.module'
     ])
         .config(routerConfiguration)
