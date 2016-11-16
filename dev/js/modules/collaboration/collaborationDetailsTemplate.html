@@ -37,7 +37,7 @@
                         <button type="button" class="btn btn-link btn-sm" ng-click="CollaborationVM.toggleMenuCollapse()"><span class="glyphicon glyphicon-menu-hamburger"></span><span class="sr-only">Toggle Folder Tree</span></button>
                     </div>
                     <div>
-                        <button type="button" class="btn btn-link btn-sm" ng-click="CollaborationVM.toggleSelectAllItems()"><span class="glyphicon glyphicon-saved"></span> Toggle Select All</button>
+                        <button type="button" class="btn btn-link btn-sm" ng-click="CollaborationVM.selectAllItems()"><span class="glyphicon glyphicon-saved"></span> Select All</button>
                         <div class="toolbar-context-box" ng-class="{'invisible ': !CollaborationVM.selectedItemList.length}">
                             <button type="button" class="btn btn-link btn-sm" ng-click="CollaborationVM.onDeleteItems()"><span class="glyphicon glyphicon-trash"></span> Delete</button>
                             <button type="button" class="btn btn-link btn-sm"><span class="glyphicon glyphicon-download"></span> Download</button>
@@ -70,7 +70,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr ng-repeat="item in CollaborationVM.selectedFolder.children | filter : CollaborationVM.selectedFolderFilter" ng-click="CollaborationVM.toggleItemHighlighted(item)" ng-class="{'active': CollaborationVM.selectedItem === item}">
+                                            <tr ng-repeat="item in CollaborationVM.selectedFolder.children.slice(((CollaborationVM.pagination.currentPage-1)*CollaborationVM.pagination.itemsPerPage), ((CollaborationVM.pagination.currentPage)*CollaborationVM.pagination.itemsPerPage)) | filter : CollaborationVM.selectedFolderFilter" ng-click="CollaborationVM.toggleItemHighlighted(item)" ng-class="{'active': CollaborationVM.selectedItem === item}">
                                                 <td class="table-select-col"><input type="checkbox" ng-model="item.checked" ng-change="CollaborationVM.onItemSelected($event)" stop-propagation></td>
                                                 <td class="table-title-col">
                                                     <a ng-click="CollaborationVM.populateSelectedFolder(item)" ng-if="item.type == 'Folder'"><span class="glyphicon glyphicon-folder-close"></span> {{item.title}}</a>
@@ -93,6 +93,9 @@
                                             </tr>
                                         </tbody>
                                     </table>
+                                </div>
+                                <div class="paginaton-box">
+                                    <ul uib-pagination total-items="CollaborationVM.pagination.totalItems" items-per-page="CollaborationVM.pagination.itemsPerPage" ng-model="CollaborationVM.pagination.currentPage" max-size="CollaborationVM.pagination.maxSize" boundary-link-numbers="true" first-text="&laquo;" last-text="&raquo;" next-text="&rsaquo;" previous-text="&lsaquo;" force-ellipses="true" boundary-links="true" ng-change="CollaborationVM.pageChanged()"></ul>
                                 </div>
                                 <div class="info-panel-box">
                                     <div class="panel panel-basic" ng-show="CollaborationVM.selectedItemCopy">

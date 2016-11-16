@@ -17,17 +17,19 @@
         vm.selectedItemCopy = null;
         vm.selectedItemList = [];
         vm.isMenuCollapsed = false;
+        vm.pagination = getPaginationValues();
 
         vm.toggleFavouriteStatus = toggleFavouriteStatus;
         vm.toggleFavouriteText = toggleFavouriteText;
         vm.onItemSelected = onItemSelected;
-        vm.toggleSelectAllItems = toggleSelectAllItems;
+        vm.selectAllItems = selectAllItems;
         vm.toggleItemHighlighted = toggleItemHighlighted;
         vm.shareItem = shareItem;
         vm.onEditselectedItemSubmit = onEditselectedItemSubmit;
         vm.populateSelectedFolder = populateSelectedFolder;
         vm.onDeleteItems = onDeleteItems;
         vm.toggleMenuCollapse = toggleMenuCollapse;
+        vm.pageChanged = pageChanged;
         $scope.$on('folderSelectFromTree', onFolderSelect);
 
 
@@ -72,16 +74,14 @@
             vm.selectedItemList = $filter('filter')(vm.selectedFolder.children, {checked: true});
         }
 
-        function toggleSelectAllItems () {
-            if(vm.selectedItemList.length){
-                angular.forEach(vm.selectedItemList, function (item) {
-                    item.checked = false;
-                });
-                vm.selectedItemList = [];
-            }
-            else{
-                
-            }
+        function selectAllItems () {
+            var currentItems = vm.selectedFolder.children.slice(((vm.pagination.currentPage-1)*vm.pagination.itemsPerPage), ((vm.pagination.currentPage)*vm.pagination.itemsPerPage));
+            currentItems = $filter('filter')(currentItems, vm.selectedFolderFilter);
+            vm.selectedItemList = [];
+            angular.forEach(currentItems, function (item) {
+                item.checked = true;
+                vm.selectedItemList.push(item);
+            });
         }
 
         function toggleItemHighlighted (item) {
@@ -96,8 +96,8 @@
         }
 
         function onEditselectedItemSubmit () {
-            var isValid = collaborationService.editFileFolderItem(vm.selectedItem, vm.selectedItemCopy);
-            if(isValid){
+            var isSaveSuccess = collaborationService.editFileFolderItem(vm.selectedItem, vm.selectedItemCopy);
+            if(isSaveSuccess){
                 alert('data saved');
             }
             else{
@@ -131,6 +131,19 @@
 
         function toggleMenuCollapse () {
             vm.isMenuCollapsed = !vm.isMenuCollapsed;
+        }
+
+        function getPaginationValues () {
+            return {
+                totalItems: 4,
+                itemsPerPage: 2,
+                maxSize: 4,
+                currentPage: 1
+            };
+        }
+
+        function pageChanged () {
+            console.log(vm.pagination.currentPage);
         }
     }
 
