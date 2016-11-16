@@ -21,6 +21,7 @@
         vm.toggleFavouriteStatus = toggleFavouriteStatus;
         vm.toggleFavouriteText = toggleFavouriteText;
         vm.onItemSelected = onItemSelected;
+        vm.toggleSelectAllItems = toggleSelectAllItems;
         vm.toggleItemHighlighted = toggleItemHighlighted;
         vm.shareItem = shareItem;
         vm.onEditselectedItemSubmit = onEditselectedItemSubmit;
@@ -69,6 +70,18 @@
 
         function onItemSelected () {
             vm.selectedItemList = $filter('filter')(vm.selectedFolder.children, {checked: true});
+        }
+
+        function toggleSelectAllItems () {
+            if(vm.selectedItemList.length){
+                angular.forEach(vm.selectedItemList, function (item) {
+                    item.checked = false;
+                });
+                vm.selectedItemList = [];
+            }
+            else{
+                
+            }
         }
 
         function toggleItemHighlighted (item) {

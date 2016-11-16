@@ -36,9 +36,12 @@
                     <div class="btn-group pull-left">
                         <button type="button" class="btn btn-link btn-sm" ng-click="CollaborationVM.toggleMenuCollapse()"><span class="glyphicon glyphicon-menu-hamburger"></span><span class="sr-only">Toggle Folder Tree</span></button>
                     </div>
-                    <div ng-class="{'invisible ': !CollaborationVM.selectedItemList.length}">
-                        <button type="button" class="btn btn-link btn-sm" ng-click="CollaborationVM.onDeleteItems()"><span class="glyphicon glyphicon-trash"></span> Delete</button>
-                        <button type="button" class="btn btn-link btn-sm"><span class="glyphicon glyphicon-download"></span> Download</button>
+                    <div>
+                        <button type="button" class="btn btn-link btn-sm" ng-click="CollaborationVM.toggleSelectAllItems()"><span class="glyphicon glyphicon-saved"></span> Toggle Select All</button>
+                        <div class="toolbar-context-box" ng-class="{'invisible ': !CollaborationVM.selectedItemList.length}">
+                            <button type="button" class="btn btn-link btn-sm" ng-click="CollaborationVM.onDeleteItems()"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+                            <button type="button" class="btn btn-link btn-sm"><span class="glyphicon glyphicon-download"></span> Download</button>
+                        </div>
                     </div>
                 </div>
             </div>
