@@ -9,7 +9,7 @@
                         <li class="active">Bank Employee Salary Auditing</li>
                     </ol>
                 </div>
-                <div class="col-xs-12 col-sm-6 text-right">
+                <div class="collab-tools col-xs-12 col-sm-6 text-right">
                     <button type="button" class="btn btn-success btn-sm">Create Folder</button>
                     <button type="button" class="btn btn-success btn-sm">Upload File</button>
                     <form class="form-inline search-primary" role="form">
@@ -58,7 +58,7 @@
                         <div class="row">
                             <div class="col-xs-12">
                                 <div class="table-box">
-                                    <table class="table table-hover table-primary">
+                                    <table class="table-folder-view table table-hover table-primary">
                                         <thead>
                                             <tr>
                                                 <th></th>
@@ -66,7 +66,7 @@
                                                 <th>Created Date</th>
                                                 <th>Last modified On</th>
                                                 <th>Size</th>
-                                                <th class="text-right">Action</th>
+                                                <th class="action text-right">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -76,16 +76,15 @@
                                                     <a ng-click="CollaborationVM.populateSelectedFolder(item)" ng-if="item.type == 'Folder'"><span class="glyphicon glyphicon-folder-close"></span> {{item.title}}</a>
                                                     <div ng-if="item.type == 'File'"><span class="glyphicon glyphicon-file"></span> {{item.title}}</div>
                                                 </td>
-                                                <td>{{item.created | date}}</td>
-                                                <td>{{item.modified | date}}</td>
+                                                <td class="text-oneliner">{{item.created | date}}</td>
+                                                <td class="text-oneliner">{{item.modified | date}}</td>
                                                 <td>{{item.size}}</td>
-                                                <td class="text-right">
-                                                    <button class="btn btn-default btn-xs" ng-click="CollaborationVM.toggleFavouriteStatus(item)">
-                                                        <!--<span class="glyphicon glyphicon-star-empty"></span>-->
+                                                <td class="action text-right">
+                                                    <button class="btn btn-default btn-xs" ng-click="CollaborationVM.toggleFavouriteStatus(item)" stop-propagation>
                                                         <span class="glyphicon" ng-class="item.favourite? 'glyphicon-star' : 'glyphicon-star-empty'"></span>
                                                         <span class="sr-only">CollaborationVM.toggleFavouriteText(item)</span>
                                                     </button>
-                                                    <button class="btn btn-danger btn-xs" ng-click="CollaborationVM.shareItem()">
+                                                    <button class="btn btn-danger btn-xs" ng-click="CollaborationVM.shareItem()" stop-propagation>
                                                         <span class="glyphicon glyphicon-share"></span>
                                                         <span class="sr-only">Share</span>
                                                     </button>
@@ -114,11 +113,11 @@
                                                                 </tr>
                                                                 <tr>
                                                                     <th>Created by</th>
-                                                                    <td>{{CollaborationVM.selectedItemCopy.created}}</td>
+                                                                    <td>{{CollaborationVM.selectedItemCopy.createdBy}}</td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th>Modified by</th>
-                                                                    <td>{{CollaborationVM.selectedItemCopy.modified}}</td>
+                                                                    <td>{{CollaborationVM.selectedItemCopy.modifiedBy}}</td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th>Activities</th>
