@@ -31,17 +31,17 @@
                     <th>Start Date</th>
                     <th>Expiry Date</th>
                     <th>Status</th>
-                    <th class="text-right">Action</th>
+                    <th class="action text-right">Action</th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="item in CollaborationListVM.collaborationList.slice(((CollaborationListVM.pagination.currentPage-1)*CollaborationListVM.pagination.itemsPerPage), ((CollaborationListVM.pagination.currentPage)*CollaborationListVM.pagination.itemsPerPage)) | filter: CollaborationListVM.filterText track by item.id">
                     <td class="table-title-col"><a ui-sref="collaborationDetails({collaborationId:1})">{{item.name}}</a></td>
                     <td>{{item.titleHolder}}</td>
-                    <td>{{item.startDate | date: 'MM/dd/yyyy'}}</td>
-                    <td>{{item.expiryDate | date: 'MM/dd/yyyy'}}</td>
+                    <td class="text-oneliner">{{item.startDate | date: 'MM/dd/yyyy'}}</td>
+                    <td class="text-oneliner">{{item.expiryDate | date: 'MM/dd/yyyy'}}</td>
                     <td>{{item.status}}</td>
-                    <td class="text-right">
+                    <td class="action text-right">
                         <button class="btn btn-default btn-xs">
                             <span class="glyphicon glyphicon-pencil"></span>
                             <span class="sr-only">Edit</span>

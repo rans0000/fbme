@@ -37,6 +37,9 @@ a:focus, a:hover{
 .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
     padding: 6px 8px;
 }
+.input-group-addon.glyphicon{
+    top: 0;
+}
 
 /*======================================================*/
 /*componenets*/
@@ -76,18 +79,34 @@ a:focus, a:hover{
         outline: 0;
     }
 }
+.action{
+    white-space: nowrap;
+    > *{
+        vertical-align: middle;
+    }
+}
+.text-oneliner{
+    white-space: nowrap;
+}
+
+/*======================================================*/
+/*buttons*/
+
 
 /*======================================================*/
 /*header*/
 .wrapper-header{
     @extend %clearfix;
     clear: both;background-color: $primary-color;
-    > .container{
+    > .container-fluid{
         padding-top: ($line-height / 3);
+    }
+    .btn-link{
+        color: #fff;text-decoration: none;
     }
 }
 .logo{
-    float: left;font-weight: bold;margin: 0;font-size: $font-size-big;line-height: ($line-height * 1.5);
+    display: table;font-weight: bold;margin: 0 auto;font-size: $font-size-big;line-height: ($line-height * 1.5);
     a{
         color: #fff;text-decoration: none;
     }
@@ -178,11 +197,27 @@ a:focus, a:hover{
 .table-select-col{
     width: 30px;
 }
+.collab-tools{
+    > *{
+        margin-bottom: 3px;vertical-align: middle;
+    }
+}
+.table-folder-view{
+    td{
+        cursor: pointer;
+    }
+}
 /*======================================================*/
 /*footer*/
 .wrapper-footer{
     height: ($line-height);text-align: center;position: fixed;bottom: 0;left: 0;width: 100%;background: darken($bg-color, 5%);
     small{
         margin: 0;line-height: ($line-height);
+    }
+}
+
+@media only screen and (min-width: 768px){
+    .logo{
+        float: left;display: block;margin: 0;
     }
 }
