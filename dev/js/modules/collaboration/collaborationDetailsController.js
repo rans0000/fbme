@@ -116,7 +116,11 @@
             vm.selectedItem = null;
             vm.selectedItemCopy = null;
             vm.selectedItemList = [];
-            angular.forEach(vm.selectedFolder.children, function (value) {
+            angular.forEach(vm.selectedFolder.children, function (value, i) {
+                if(i === 0){
+                    vm.selectedItem = value;
+                    vm.selectedItemCopy = angular.copy(value);
+                }
                 value.checked = false;
             });
             $scope.$broadcast('folderSelectFromExplorer', item);
@@ -147,7 +151,7 @@
         function pageChanged () {
             console.log(vm.pagination.currentPage);
         }
-        
+
         function getmenuOptions () {
             return [
                 ['Select Folder Permission', rightClickMenuHandler],
@@ -157,7 +161,7 @@
                 ['Copy to personal space', rightClickMenuHandler],
             ];
         }
-        
+
         function rightClickMenuHandler ($itemScope, $event, modelValue, text, $li) {
             console.log($li);
         }
