@@ -67,12 +67,15 @@ a:focus, a:hover{
         padding: 0;margin: 0;
     }
     .item-name{
-        margin-bottom: 2px;/*display: inline-block;*/font-weight: bold;color: #999;cursor: pointer;
+        padding-bottom: 2px;/*display: inline-block;*/font-weight: bold;color: lighten(#1e4867, 55%);/*cursor: pointer;*/
         &.active{
-            color: $primary-color;
+            color: #fff;
+            > .btn{
+                color: #fff;
+            }
         }
         &.opened + .menu-tree{
-            display: block;
+            display: block;background: darken(#1e4867, 10%);
         }
     }
     .btn{
@@ -250,14 +253,29 @@ a:focus, a:hover{
         display: -ms-flex;
         display: -o-flex;
         display: flex;
-        padding-left: 0;height: 100%;
-        
+        padding-left: 0;min-height: 100%;
+
     }
     .tree-pane{
         background: #1e4867;color: #fff;
     }
     .explorer-pane{
-        margin-left: 0;width: 100%;
+        margin-left: 0;width: 100%;padding-left: 15px;
+    }
+    .menu-tree .item-name{
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        width: 100%;
+
+        &.opened{
+            background: darken(#1e4867, 10%);
+        }
+    }
+    .tem-name-text{
+        flex-grow: 1;cursor: pointer;padding-left: 10px;
     }
 }
 
