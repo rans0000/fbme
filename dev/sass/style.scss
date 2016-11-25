@@ -44,7 +44,7 @@ a:focus, a:hover{
 /*======================================================*/
 /*componenets*/
 .table-box{
-    min-height: 150px;
+    min-height: 150px;max-height: 300px;overflow: auto;overflow-x: auto;overflow-y: hidden;
 }
 .table-primary{
     background: #fff;
@@ -118,7 +118,7 @@ a:focus, a:hover{
     }
 }
 .main-toolbar{
-    background: #fff;box-shadow: 0 1px 3px rgba(0, 0, 0, .2);z-index: 5;
+    background: #fff;box-shadow: 0 1px 3px rgba(0, 0, 0, .2);z-index: 5;position: relative;
     padding-top: ($line-height / 3);padding-bottom: ($line-height / 3);
     .search-primary{
         display: inline-block;

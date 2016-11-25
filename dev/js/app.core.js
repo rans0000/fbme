@@ -19,6 +19,7 @@
 
     function CoreController () {
         var vm = this;
+        vm.currentPage = 'page-outer';
     }
 
     routerConfiguration.$inject = ['$stateProvider', '$urlRouterProvider'];

@@ -19,6 +19,7 @@
         vm.isMenuCollapsed = false;
         vm.pagination = getPaginationValues();
         vm.menuOptions = getmenuOptions();
+        $scope.core.currentPage = 'page-inner';
 
         vm.toggleFavouriteStatus = toggleFavouriteStatus;
         vm.toggleFavouriteText = toggleFavouriteText;
