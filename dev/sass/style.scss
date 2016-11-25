@@ -64,7 +64,7 @@ a:focus, a:hover{
         display: block;padding-left: 0;
     }
     ul{
-        padding: 0;
+        padding: 0;margin: 0;
     }
     .item-name{
         margin-bottom: 2px;/*display: inline-block;*/font-weight: bold;color: #999;cursor: pointer;
@@ -97,7 +97,7 @@ a:focus, a:hover{
 /*header*/
 .wrapper-header{
     @extend %clearfix;
-    clear: both;background-color: $primary-color;
+    clear: both;background-color: $primary-color;height: 38px;position: fixed;top: 0;left: 0;width: 100%;z-index: 10;
     > .container-fluid{
         padding-top: ($line-height / 3);
     }
@@ -139,7 +139,7 @@ a:focus, a:hover{
 /*content*/
 .wrapper-main{
     @extend %clearfix;
-    clear: both;/*min-height: 20rem;min-height: calc(100vh - (8.9rem));*/margin-bottom: $line-height;
+    clear: both;/*min-height: 20rem;min-height: calc(100vh - (8.9rem));*/margin-bottom: $line-height;margin-top: 38px;
 }
 
 .popup-wrapper{
@@ -207,6 +207,60 @@ a:focus, a:hover{
         cursor: pointer;
     }
 }
+
+/*======================================================*/
+.page-inner{
+    .wrapper-main{
+        position: absolute;top: 0;left: 0;width: 100%;height: calc(100% - 5.6rem);
+    }
+}
+.collab-det-box{
+    height: 100%;overflow: auto;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    flex-direction: column;
+    .main-toolbar{
+
+    }
+    .collab-display{
+        flex-grow: 1;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .collaboration-pane{
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        flex-grow: 1;
+        overflow: auto;
+    }
+    .collaboration-pane-inner{
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        padding-left: 0;height: 100%;
+        
+    }
+    .tree-pane{
+        background: #1e4867;color: #fff;
+    }
+    .explorer-pane{
+        margin-left: 0;width: 100%;
+    }
+}
+
 /*======================================================*/
 /*footer*/
 .wrapper-footer{

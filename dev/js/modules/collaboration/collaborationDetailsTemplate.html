@@ -1,4 +1,4 @@
-<div>
+<div class="collab-det-box">
     <header class="main-toolbar">
         <div class="container-fluid">
             <div class="row">
@@ -24,12 +24,7 @@
             </div>
         </div>
     </header>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-xs-12">
-
-            </div>
-        </div>
+    <div class="collab-display container-fluid">
         <div class="row">
             <div class="col-xs-12 toolbar-box">
                 <div class="toolbar" ng-class="{'collapsed': CollaborationVM.isMenuCollapsed}">
@@ -47,7 +42,7 @@
             </div>
         </div>
         <div class="collaboration-pane row" ng-class="{'collapsed': CollaborationVM.isMenuCollapsed}">
-            <div class="col-xs-12">
+            <div class="collaboration-pane-inner col-xs-12">
                 <div class="tree-pane">
                     <div class="left-pane">
                         <tree collection="CollaborationVM.itemTree"></tree>
