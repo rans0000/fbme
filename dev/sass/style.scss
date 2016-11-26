@@ -75,7 +75,7 @@ a:focus, a:hover{
             }
         }
         &.opened + .menu-tree{
-            display: block;background: darken(#1e4867, 10%);
+            /*display: block;*/background: darken(#1e4867, 10%);
         }
     }
     .btn{

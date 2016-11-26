@@ -7,13 +7,14 @@
     angular.module('app.core')
         .directive('branch', branchDirective);
 
-    branchDirective.$inject = ['$compile'];
-    function branchDirective ($compile) {
+    branchDirective.$inject = ['$compile', 'jQuery'];
+    function branchDirective ($compile, $) {
         var directiveObject = {
             replace: true,
             restrict: 'E',
             scope: {
-                item: '='
+                item: '=',
+                selectedFolder: '='
             },
             templateUrl: 'js/modules/directives/branchDirectiveTemplate.html',
             link: branchLink,
@@ -26,20 +27,38 @@
 
         return directiveObject;
 
-        function branchLink (scope, element) {
+        function branchLink (scope, element, attributes, ctrl) {
+            var $element = $(element);
+            
+            ctrl.toggleOpenState = toggleOpenState;
+            
             if(angular.isArray(scope.branch.item.children)){
-                $compile('<tree collection="branch.item.children"></tree>')(scope, function (cloned) {
+                $compile('<tree collection="branch.item.children" selected-folder="tree.selectedFolder"></tree>')(scope, function (cloned) {
                     element.append(cloned);
                 });
+            }
+            
+            function toggleOpenState (event) {
+                event.stopPropagation();
+                ctrl.isOpen = !ctrl.isOpen;
+                if(ctrl.isOpen){
+                    $element.children('.menu-tree').slideDown();
+                }
+                else{
+                    scope.$emit('folderOpened');
+                    $element.children('.menu-tree').slideUp();
+                }
             }
         }
 
         function BranchController ($scope) {
             var vm = this;
-            vm.isActive = false;
+            //vm.isActive = false;
+            vm.isActive = vm.item === vm.selectedFolder;
             vm.isOpen = false;
             vm.onItemClick = onItemClick;
-            vm.toggleOpenState = toggleOpenState;
+            vm.hasInnerFolder = checkForInnerFolder();
+            //vm.toggleOpenState = toggleOpenState;
             $scope.$on('folderSelectFromExplorer', onFolderSelect);
             $scope.$on('folderOpened', folderOpenedLitener);
 
@@ -57,18 +76,19 @@
                     vm.isActive = false;
                 }
             }
-
-            function toggleOpenState () {
-                vm.isOpen = !vm.isOpen;
-                if(vm.isOpen){
-                }
-                else{
-                    $scope.$emit('folderOpened');
-                }
-            }
             
             function folderOpenedLitener () {
                 //console.log(vm.item.title);
+            }
+            
+            function checkForInnerFolder () {
+                var hasFolder = false;
+                angular.forEach(vm.item.children, function (item) {
+                    if(item.type === 'Folder'){
+                        hasFolder = true;
+                    }
+                });
+                return hasFolder;
             }
         }
     }

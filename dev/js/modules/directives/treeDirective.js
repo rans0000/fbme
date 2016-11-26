@@ -12,7 +12,8 @@
             replace: true,
             restrict: 'E',
             scope: {
-                collection: '='
+                collection: '=',
+                selectedFolder: '='
             },
             templateUrl: 'js/modules/directives/treeDirectiveTemplate.html',
             link: treeLink,

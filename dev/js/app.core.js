@@ -1,5 +1,6 @@
 /*jshint browser: true*/
 /*global angular: true*/
+/*global jQuery: true*/
 
 (function(){
     'use strict';
@@ -12,6 +13,7 @@
     ])
         .config(routerConfiguration)
         .config(debugConfiguration)
+        .factory('jQuery', jQueryService)
         .controller('CoreController', CoreController);
 
     //--------------------------------------
@@ -39,6 +41,10 @@
             controller: 'CollaborationDetailsController',
             controllerAs: 'CollaborationVM'
         });
+    }
+    
+    function jQueryService () {
+        return jQuery;
     }
 
     debugConfiguration.$inject = ['$compileProvider'];

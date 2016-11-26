@@ -1,7 +1,7 @@
 <li ng-show="branch.item.type == 'Folder'">
-    <div class="item-name clearfix" ng-class="{'active': branch.isActive, 'opened': branch.isOpen}">
+    <div class="item-name clearfix" ng-class="{'active': branch.isActive, 'opened': branch.isOpen}" slide-toggle>
         <span class="tem-name-text" ng-click="branch.onItemClick(branch.item)">{{branch.item.title}}</span>
-        <button type="button" class="btn btn-link btn-xs" ng-click="branch.toggleOpenState()">
+        <button type="button" class="btn btn-link btn-xs" ng-click="branch.toggleOpenState($event)" ng-show="branch.hasInnerFolder">
             <span class="glyphicon {{branch.isOpen? 'glyphicon-chevron-down': 'glyphicon-chevron-right'}}"></span>
         </button>
     </div>
